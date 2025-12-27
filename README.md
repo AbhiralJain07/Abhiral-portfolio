@@ -6,7 +6,7 @@ A modern, dark‑themed, animated personal portfolio website showcasing my profi
 
 ## 🔗 Live Demo
 
-👉 **Live Website:** abhiral-portfolio.vercel.app>.vercel.app
+👉 **Live Website:** abhiral-portfolio.vercel.app
 
 ---
 
@@ -120,11 +120,11 @@ This project is deployed using **Vercel**.
 
 **Abhiral Jain**
 B.Tech CSE (AI & ML)
-Research Team Lead — EvolVIT
+Research Team Lead — EvolVIT, 
 VIT Bhopal University
 
-* GitHub: [https://github.com/in](https://github.com/AbhiralJain07))<AbhiralJain07>
-* LinkedIn: [https://linkedin.com/in/](https://www.linkedin.com/in/jainabhiral/)<your-link>
+* GitHub: [https://github.com/in](https://github.com/AbhiralJain07)<AbhiralJain07>
+* LinkedIn: [https://linkedin.com/in/](https://www.linkedin.com/in/jainabhiral/)<[https://www.linkedin.com/in/jainabhiral/]>
 
 ---
 
