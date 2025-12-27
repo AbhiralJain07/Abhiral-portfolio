@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abhiral Jain — Full-Stack & ML Developer</title>
+  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1720;
+      --muted:#94a3b8;
+      --accent:#6ee7b7;
+      --accent-2:#7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --soft:#11161b;
+      --shadow: 0 6px 20px rgba(2,6,23,0.6);
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.06), transparent 6%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(110,231,183,0.03), transparent 6%),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+      line-height:1.45;
+    }
+
+    /* Container */
+    .container{max-width:1100px;margin:0 auto;padding:48px 24px;}
+
+    /* Nav */
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+    }
+    .nav-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo {
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-weight:800;color:#051018;
+      box-shadow: 0 6px 18px rgba(124,58,237,0.12), inset 0 -4px 12px rgba(255,255,255,0.06);
+    }
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;font-size:14px}
+    nav a:hover{color:var(--accent)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:center;padding:48px 0}
+    .hero-left{max-width:640px}
+    .eyebrow{color:var(--accent);font-weight:700;background:linear-gradient(90deg, rgba(110,231,183,0.06), rgba(124,58,237,0.03));display:inline-block;padding:6px 10px;border-radius:999px;font-size:13px}
+    h1{font-size:38px;margin:16px 0 8px;letter-spacing:-0.5px}
+    .subtitle{color:var(--muted);font-size:16px;margin-bottom:18px;min-height:48px}
+    .cta{display:flex;gap:12px;align-items:center}
+    .btn{
+      padding:11px 16px;border-radius:10px;border:0;font-weight:700;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#041017;cursor:pointer;box-shadow: 0 8px 20px rgba(124,58,237,0.12);
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Robot card */
+    .hero-right{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      padding:22px;border-radius:14px;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;align-items:center;gap:14px;
+    }
+    .robot{
+      width:240px;height:240px;display:grid;place-items:center;touch-action:none;
+    }
+    /* simple SVG head style */
+    .robot svg{width:85%;height:85%;filter: drop-shadow(0 10px 20px rgba(2,6,23,0.6))}
+
+    .robot-stats{display:flex;gap:10px;width:100%;justify-content:space-around}
+    .stat{display:flex;flex-direction:column;align-items:center}
+    .stat b{font-size:18px;color:#fff}
+    .stat small{color:var(--muted);font-size:12px}
+
+    /* Sections */
+    section.card{
+      margin-top:42px;padding:22px;border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.02);
+      box-shadow: 0 8px 30px rgba(2,6,23,0.45);
+    }
+
+    /* Projects grid */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px}
+    .project{
+      background:linear-gradient(180deg,var(--soft),rgba(255,255,255,0.01));
+      border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.02);transition:transform .28s ease, box-shadow .28s;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.55)}
+    .thumb{height:140px;border-radius:10px;background:linear-gradient(135deg, rgba(124,58,237,0.12), rgba(110,231,183,0.06));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .project h3{margin:0}
+    .tech{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    .project .links{margin-top:auto;display:flex;gap:10px}
+    .link-btn{flex:1;padding:8px 10px;border-radius:8px;border:0;background:transparent;color:var(--accent);font-weight:700;border:1px solid rgba(110,231,183,0.08);cursor:pointer}
+    .link-btn.ghost{color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+
+    /* Skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:12px}
+    .skill{background:linear-gradient(180deg, rgba(255,255,255,0.01),transparent);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .skill .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;margin-top:8px;overflow:hidden}
+    .skill .bar > i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width 1.2s cubic-bezier(.2,.9,.2,1)}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .contact-form input,.contact-form textarea{
+      width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;
+    }
+    .contact-form textarea{min-height:140px;resize:vertical}
+    .muted{color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:40px;padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr;gap:20px}
+      .contact-grid{grid-template-columns:1fr}
+      nav a{display:none}
+    }
+
+    /* Tiny utilities */
+    .row{display:flex;gap:12px;align-items:center}
+    .pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+    .sr-only{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+
+  <header aria-label="Top navigation">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo">AJ</div>
+        <div>
+          <div style="font-weight:800">Abhiral Jain</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:3px">Front-end Developer · ML Enthusiast</div>
+        </div>
+      </div>
+      <nav aria-label="Main">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-left">
+        <span class="eyebrow">Open to internships · Seeking ML roles</span>
+        <h1 id="hero-heading">Hi — I'm Abhiral Jain.</h1>
+        <div class="subtitle">
+          <span id="typed">I build scalable web apps</span><span id="cursor" aria-hidden="true">|</span>
+        </div>
+
+        <p class="muted" style="max-width:650px">
+          CSE (AIML) student, VIT Bhopal. I combine full-stack development with applied machine learning to build interactive and intelligent web applications. I focus on clean UX, performance and maintainable code.
+        </p>
+
+        <div class="cta" style="margin-top:18px">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Hire Me</a>
+          <a href="assets/resume/Abhiral_Jain.pdf" target="_blank" class="btn ghost">
+  Download Resume
+</a>
+
+        </div>
+
+        <div style="margin-top:20px" aria-hidden="true">
+          <span class="pill">React · Flask · Python · Java · SQL</span>
+          <span class="pill">AI/ML · Firebase · Vercel</span>
+        </div>
+      </div>
+
+      <aside class="hero-right" aria-label="Profile card">
+        <div class="robot" id="robotCard" title="Interactive head — moves subtly with cursor">
+          <!-- Simple robot SVG head that will tilt/track mouse a bit -->
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" id="robotSvg" role="img" aria-label="robot head">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#6ee7b7"/>
+                <stop offset="1" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="12" y="18" rx="14" ry="14" width="96" height="76" fill="#07101a" stroke="url(#g1)" stroke-opacity="0.12" stroke-width="1.5"/>
+            <circle cx="38" cy="48" r="8" fill="#07101a" stroke="#5ee0a6" stroke-width="2"/>
+            <circle cx="82" cy="48" r="8" fill="#07101a" stroke="#9a8cff" stroke-width="2"/>
+            <rect x="50" y="70" width="20" height="6" rx="3" fill="#0b1820" stroke="#ffffff10"/>
+            <!-- mouth -->
+            <rect id="mouth" x="42" y="58" width="36" height="6" rx="3" fill="#061018" stroke="#ffffff08"/>
+            <!-- antenna -->
+            <rect x="56" y="6" width="8" height="16" rx="3" fill="#061018" stroke="url(#g1)" stroke-opacity="0.12"/>
+            <circle id="antennaDot" cx="60" cy="8" r="3" fill="#6ee7b7" />
+          </svg>
+        </div>
+
+        <div class="robot-stats">
+          <div class="stat"><b>5+</b><small>Projects</small></div>
+          <div class="stat"><b>React</b><small>Front-end</small></div>
+          <div class="stat"><b>ML</b><small>Models</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="card" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+      <p class="muted">Selected work with links to demos and repositories.</p>
+
+      <div class="projects-grid" aria-live="polite">
+        <!-- Project 1 -->
+        <article class="project" aria-label="BrainQuest app">
+          <div class="thumb">BrainQuest</div>
+          <h3>BrainQuest — Interactive learning app</h3>
+          <p class="muted">A multi-game learning platform for kids: Sudoku, puzzles, scoring, timed quizzes, and progress tracking.</p>
+          <div class="tech" aria-hidden="true">
+            <span class="badge">React</span><span class="badge">Firebase</span><span class="badge">Canvas</span>
+          </div>
+          <div class="links">
+            <button class="link-btn" onclick="openLink('https://brain-quest-jet.vercel.app/')">Live Demo</button>
+            <button class="link-btn ghost" onclick="openLink('https://github.com/Parth-Gholap/Brain-Quest')">GitHub</button>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project" aria-label="Stock prediction">
+          <div class="thumb">ChatBox</div>
+          <h3>ChatBox</h3>
+          <p class="muted">AI-powered chat system that generates content, answers questions, and converses naturally like a human. Built with advanced NLP capabilities and intuitive interface design..</p>
+          <div class="tech">
+            <span class="badge">Flask</span><span class="badge">Python</span><span class="badge">API key</span>
+          </div>
+          <div class="links">
+            <button class="link-btn" onclick="openLink('https://chatbox-4ruv-abhiraljain07s-projects.vercel.app/')">Live Demo</button>
+            <button class="link-btn ghost" onclick="openLink('https://github.com/AbhiralJain07/chatbox')">GitHub</button>
+          </div>
+        </article>
+
+        <!-- Project 3
+        <article class="project" aria-label="Test evaluation">
+          <div class="thumb">EvalAI</div>
+          <h3>Test Evaluation Platform</h3>
+          <p class="muted">Flask app for teachers & students with AI-assisted test evaluation and analytics.</p>
+          <div class="tech"><span class="badge">Flask</span><span class="badge">SQLite</span><span class="badge">AI</span></div>
+          <div class="links">
+            <button class="link-btn" onclick="openLink('#')">Preview</button>
+            <button class="link-btn ghost" onclick="openLink('#')">GitHub</button>
+          </div>
+        </article> -->
+
+        <!-- Add more projects as needed -->
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="card" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <p class="muted">Technologies I use frequently.</p>
+
+      <div class="skills-grid">
+        <div class="skill" aria-label="Frontend skill">
+          <strong>Frontend — React & JS</strong>
+          <div class="muted" style="font-size:13px;margin-top:6px">Building performant, component-driven UIs</div>
+          <div class="bar"><i data-fill="68%"></i></div>
+        </div>
+
+        <div class="skill" aria-label="Backend skill">
+          <strong>Backend — Flask & Node</strong>
+          <div class="muted" style="font-size:13px;margin-top:6px">APIs, auth, server logic</div>
+          <div class="bar"><i data-fill="46%"></i></div>
+        </div>
+
+        <div class="skill" aria-label="ML skill">
+          <strong>ML — Data & Models</strong>
+          <div class="muted" style="font-size:13px;margin-top:6px">Scikit-learn, TensorFlow, data pipelines</div>
+          <div class="bar"><i data-fill="68%"></i></div>
+        </div>
+
+        <div class="skill" aria-label="DevOps skill">
+          <strong>Deployment — Vercel & Firebase</strong>
+          <div class="muted" style="font-size:13px;margin-top:6px">CI friendly, fast deploy</div>
+          <div class="bar"><i data-fill="72%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Experience -->
+    <section id="about" class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading">About & Experience</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:12px">
+        <div>
+          <p>I’m a 2nd-year CSE (AIML) student at VIT Bhopal. I build Front-end web pages and prototype ML models that add real value. I enjoy translating math and models into usable user experiences and maintain clean, testable code.</p>
+          <p>My work combines curiosity, discipline, and a strong eagerness to learn. I thrive on creating impactful tech solutions that enhance user experiences.</p>
+
+          <h4 style="margin-top:18px">Experience & Projects</h4>
+          <ul class="muted">
+            <li>Research Team Lead — EvolVIT, VIT Bhopal </li>
+            <li>BrainQuest — interactive learning web app (React + Firebase)</li>
+            <li>ChatBox UI — Flask + API keys</li>
+          </ul>
+        </div>
+
+        <aside style="background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
+          <div style="font-weight:700">Education</div>
+          <div class="muted" style="margin-top:6px">VIT Bhopal (2024-2028) — B.Tech CSE (AI & ML)</div>
+          <div class="muted" style="margin-top:6px">JawaharLal Nehru School — High School Education (2012 - 2022)</div>
+          <div style="margin-top:12px;font-weight:700">Availability</div>
+          <div class="muted" style="margin-top:6px">Open for internships (Summer/Fall). Available for freelance ML projects.</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p class="muted">Let’s talk — internships, freelance, or collaboration.</p>
+
+      <div class="contact-grid" style="margin-top:12px">
+        <!-- form (client side only) -->
+        <!-- <form class="contact-form" onsubmit="sendForm(event)" aria-label="Contact form">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input id="name" required placeholder="Your name" />
+            <input id="email" type="email" required placeholder="Your email" />
+          </div>
+          <input id="subject" placeholder="Subject" style="margin-top:10px" />
+          <textarea id="message" required placeholder="Message..." style="margin-top:10px"></textarea>
+          <div style="margin-top:10px;display:flex;gap:10px">
+            <button class="btn" type="submit">Send Message</button>
+            <button class="btn ghost" type="button" onclick="openLink('mailto:jainabhiral7@gmail.com')">Email Me</button>
+          </div>
+          <div id="formMsg" class="muted" style="margin-top:10px"></div>
+        </form> -->
+
+        <aside style="padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)">
+          <div style="font-weight:700">Get in touch</div>
+          <div class="muted" style="margin-top:8px">Email: <a href="mailto:jainabhiral7@gmail.com">jainabhiral7@gmail.com</a></div>
+          <div class="muted" style="margin-top:8px">LinkedIn: <a href="https://www.linkedin.com/in/jainabhiral/" onclick="openLink('https://www.linkedin.com/in/jainabhiral/')">https://www.linkedin.com/in/jainabhiral/</a></div>
+          <div class="muted" style="margin-top:8px">GitHub: <a href="https://github.com/AbhiralJain07" onclick="openLink('https://github.com/AbhiralJain07')">https://github.com/AbhiralJain07</a></div>
+
+          <div style="margin-top:18px">
+            <div style="font-weight:700">Location</div>
+            <div class="muted" style="margin-top:6px">India · Open to remote roles</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Abhiral Jain · All rights reserved  <span class="muted"></span>
+    </footer>
+
+  </main>
+
+  <script>
+    // Basic helpers
+    function openLink(url){
+      window.open(url, '_blank', 'noopener');
+    }
+
+    // Resume download placeholder
+    function downloadResume(e){
+      e.preventDefault();
+      // Replace with actual resume link or file
+      openLink('Abhiral Jain.pdf');
+    }
+
+    // Typed subtitle animation
+    (function typed(){
+      const phrases = [
+        "I build scalable web apps.",
+        "I design ML prototypes that work.",
+        "I ship clean & maintainable code."
+      ];
+      const el = document.getElementById('typed');
+      const cursor = document.getElementById('cursor');
+      let pi=0, ci=0, forward=true;
+      function step(){
+        const txt = phrases[pi];
+        if(forward){
+          ci++;
+          el.textContent = txt.slice(0,ci);
+          if(ci>=txt.length){ forward=false; setTimeout(step,1400); return; }
+        } else {
+          ci--;
+          el.textContent = txt.slice(0,ci);
+          if(ci===0){ forward=true; pi=(pi+1)%phrases.length; }
+        }
+        setTimeout(step, forward ? 60 : 30);
+      }
+      step();
+      // Blink cursor
+      setInterval(()=>cursor.style.opacity = cursor.style.opacity==='0' ? '1' : '0', 550);
+    })();
+
+    // Skill bars animate on scroll
+    (function skillBars(){
+      const els = document.querySelectorAll('.skill .bar i');
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            const i = entry.target;
+            const val = i.getAttribute('data-fill') || '70%';
+            i.style.width = val;
+          }
+        });
+      }, {threshold: .25});
+      els.forEach(e=>obs.observe(e));
+    })();
+
+    // Robot head slight tracking to cursor
+    (function robotFollow(){
+      const svg = document.getElementById('robotSvg');
+      const robotCard = document.getElementById('robotCard');
+      if(!svg) return;
+      const mouth = document.getElementById('mouth');
+      const antenna = document.getElementById('antennaDot');
+
+      function update(e){
+        const rect = robotCard.getBoundingClientRect();
+        const cx = rect.left + rect.width/2;
+        const cy = rect.top + rect.height/2;
+        const dx = (e.clientX - cx)/rect.width;
+        const dy = (e.clientY - cy)/rect.height;
+        // apply small transform
+        svg.style.transform = `rotate(${dx*8}deg) translate(${dx*8}px, ${dy*8}px)`;
+        // mouth width animation
+        if(mouth) mouth.setAttribute('width', 36 + Math.abs(dx)*14);
+        if(antenna) antenna.setAttribute('cx', 60 + dx*6);
+      }
+
+      // Use pointer events if available for better device support
+      window.addEventListener('pointermove', update);
+      // subtle idle breathing
+      let t=0;
+      setInterval(()=> {
+        t+=0.03;
+        svg.style.transform += ` translateY(${Math.sin(t)*0.3}px)`;
+      }, 80);
+    })();
+
+    // Contact form (client-only demo)
+    function sendForm(ev){
+      ev.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const msgEl = document.getElementById('formMsg');
+
+      if(!name || !email || !message){
+        msgEl.textContent = "Please fill name, email and message.";
+        return;
+      }
+      // Demo: show message. Replace with real API call to send.
+      msgEl.style.color = 'var(--accent)';
+      msgEl.textContent = "Message ready — replace form handler with your backend to actually send.";
+      // reset after a short delay
+      setTimeout(()=> {
+        msgEl.textContent = "";
+        ev.target.reset();
+      }, 2200);
+    }
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Small accessibility: focus outline for keyboard users
+    document.body.addEventListener('keydown', (e)=>{
+      if(e.key==='Tab') document.documentElement.style.scrollBehavior='smooth';
+    });
+  </script>
+
+</body>
+</html>
+
+
+
