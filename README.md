@@ -124,7 +124,7 @@ Research Team Lead — EvolVIT,
 VIT Bhopal University
 
 * GitHub: [https://github.com/in](https://github.com/AbhiralJain07)<AbhiralJain07>
-* LinkedIn: [https://linkedin.com/in/](https://www.linkedin.com/in/jainabhiral/)<[https://www.linkedin.com/in/jainabhiral/]>
+* LinkedIn: [https://linkedin.com/in/](https://www.linkedin.com/in/jainabhiral/)
 
 ---
 
